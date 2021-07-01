@@ -2,12 +2,12 @@ import React, { useEffect } from 'react';
 import styled, { Keyframes, keyframes } from 'styled-components';
 import { defaultCenterImage, defaultImages } from './defaultImages';
 
-interface CarouselProps {
+export interface CarouselProps {
   images: string[];
   centeredImage: string;
 }
 
-interface CarouselStyles {
+export interface CarouselStyles {
   carouselAnimation?: Keyframes;
   negativeAnimation?: Keyframes;
   itemsAnimation?: () => string;
@@ -16,9 +16,9 @@ interface CarouselStyles {
   width?: string;
 }
 
-type IProps = CarouselProps & CarouselStyles;
+export type IProps = CarouselProps & CarouselStyles;
 
-const Carousel: React.FC<IProps> = ({
+export const SolarSystemCarousel: React.FC<IProps> = ({
   images = defaultImages,
   centeredImage = defaultCenterImage,
   centerWidth = '100px',
@@ -188,5 +188,3 @@ const LastChild = styled.div<CarouselStyles>`
     transform: translateY(35px);
   }
 `;
-
-export default Carousel;
