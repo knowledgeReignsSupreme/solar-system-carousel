@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import styled, { Keyframes, keyframes } from 'styled-components';
+import { defaultCenterImage, defaultImages } from './defaultImages';
 
 interface CarouselProps {
   images: string[];
-  lastImage: string;
+  centeredImage: string;
 }
 
 interface CarouselStyles {
@@ -18,8 +19,8 @@ interface CarouselStyles {
 type IProps = CarouselProps & CarouselStyles;
 
 const Carousel: React.FC<IProps> = ({
-  images,
-  lastImage,
+  images = defaultImages,
+  centeredImage = defaultCenterImage,
   centerWidth = '100px',
 }) => {
   const radius = '150px';
@@ -114,7 +115,7 @@ const Carousel: React.FC<IProps> = ({
           negativeAnimation={negativeAnimation}
           centerWidth={centerWidth}
         >
-          <img src={lastImage} alt="" />
+          <img src={centeredImage} alt="" />
         </LastChild>
       </CarouselContent>
     </TechsCarousel>
