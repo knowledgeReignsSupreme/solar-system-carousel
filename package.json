@@ -38,8 +38,12 @@
   "name": "solar-system-carousel",
   "author": {
     "name": "Hadar Harush & David Sharki",
-    "email": "david17895@gmail.com",
+    "email": "hadarushha@gmail.com",
     "url": "https://www.davidsharki.com"
+  },
+  "repository": {
+    "url": "https://github.com/knowledgeReignsSupreme/solar-system-carousel",
+    "type": "git"
   },
   "module": "dist/solar-system-carousel.esm.js",
   "size-limit": [
