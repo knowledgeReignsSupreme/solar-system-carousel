@@ -21,7 +21,7 @@ export type IProps = CarouselProps & CarouselStyles;
 export const SolarSystemCarousel: React.FC<IProps> = ({
   images = defaultImages,
   centeredImage = defaultCenterImage,
-  centerWidth = '100px',
+  centerWidth = '400px',
 }) => {
   const radius = '150px';
 
