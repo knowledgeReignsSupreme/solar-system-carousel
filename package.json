@@ -36,7 +36,11 @@
     "trailingComma": "es5"
   },
   "name": "solar-system-carousel",
-  "author": "David",
+  "author": {
+    "name": "Hadar Harush & David Sharki",
+    "email": "david17895@gmail.com",
+    "url": "https://www.davidsharki.com"
+  },
   "module": "dist/solar-system-carousel.esm.js",
   "size-limit": [
     {
