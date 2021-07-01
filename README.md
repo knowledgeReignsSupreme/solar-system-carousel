@@ -1,7 +1,6 @@
 # Solar System Carousel
 ### A unique and easy to use carousel.
 #### Made by Hadar Harush & David Sharki.
-<br />
 
 ```bash
   npm i solar-system-carousel
