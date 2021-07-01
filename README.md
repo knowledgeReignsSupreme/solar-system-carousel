@@ -33,8 +33,8 @@ function Foo() {
 
 | prop    | value  | Description         | default | required? |
 | ------- | ------ | ------------------- | ------- | --------- |
-| images    | array of string | The images that should revolve in the carousel. must have 1-12 images! | an example array of 4 images | yes                                                      
-| centeredImage    | an image string | The images that should be in the middle of the carousel | head image | yes                                                      
+| images    | array of strings | The images that should revolve in the carousel. must have 1-12 images! | an example array of 4 images | yes                                                      
+| centeredImage    | string | The images that should be in the middle of the carousel | head image | yes                                                      
 | centerWidth    | string | width of the centered image. works with any unit. e.g: centerWidth='20rem' or centerWidth='80%'. | '400px' | no                                                      
 
 <br />
