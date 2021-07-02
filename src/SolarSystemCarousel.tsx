@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import styled, { Keyframes, keyframes } from 'styled-components';
 import { defaultCenterImage, defaultImages } from './defaultImages';
+import { carouselRotation, getItemsPosition, negativeRotation } from './Helpers';
 
 export interface CarouselProps {
   images: string[];
@@ -10,7 +11,7 @@ export interface CarouselProps {
 export interface CarouselStyles {
   carouselAnimation?: Keyframes;
   negativeAnimation?: Keyframes;
-  itemsAnimation?: () => string;
+  itemsPosition?: string;
   centerWidth?: string;
   radius?: string;
   width?: string;
@@ -25,76 +26,10 @@ export const SolarSystemCarousel: React.FC<IProps> = ({
 }) => {
   const radius = '150px';
 
-  const itemPosition = (i: number) => {
-    let calc = (360 / images.length) * i - 1;
-    return `
-    &:nth-child(${i}) {
-      transform: rotateY(${calc}deg) translateZ(150px);
-    }
-    `;
-  };
-
-  const getItemsPosition = () => {
-    let str = '';
-
-    for (let i = 1; i <= images.length; i++) {
-      str += itemPosition(i);
-    }
-
-    return str;
-  };
-
-  const carouselRotation = () => {
-    let frames = '';
-
-    for (let i = 1; i <= images.length; i++) {
-      let firstFrame = (100 / (images.length * 2)) * (2 * i - 2);
-      let secondFrame = (100 / (images.length * 2)) * (2 * i - 1);
-
-      let calc = (360 / images.length) * (i - 1);
-
-      frames += `
-      ${firstFrame}% ,${secondFrame}% {
-      transform: translateZ(-${radius}) rotateY(-${calc}deg);
-    }
-      `;
-    }
-
-    frames += `
-    100% {
-      transform: translateZ(-${radius}) rotateY(-360deg);
-    }`;
-
-    return frames;
-  };
-
-  const carouselAnimation = keyframes`${carouselRotation()}`;
-
-  const negativeRotation = () => {
-    let frames = '';
-
-    for (let i = 1; i <= images.length; i++) {
-      let firstFrame = (100 / (images.length * 2)) * (2 * i - 2);
-      let secondFrame = (100 / (images.length * 2)) * (2 * i - 1);
-
-      let calc = (360 / images.length) * (i - 1);
-      frames += `
-      ${firstFrame}% ,${secondFrame}% {
-      transform: rotateY(${calc}deg);
-      }
-      `;
-    }
-
-    frames += `
-    100% {
-      transform:rotateY(360deg);
-
-    }`;
-
-    return frames;
-  };
-
-  const negativeAnimation = keyframes`${negativeRotation()}`;
+  
+  const itemsPosition = getItemsPosition(images)
+  const carouselAnimation = keyframes`${carouselRotation(images, radius)}`;
+  const negativeAnimation = keyframes`${negativeRotation(images)}`;
 
   useEffect(() => {
     // solar-system-carouel - images props
@@ -107,7 +42,7 @@ export const SolarSystemCarousel: React.FC<IProps> = ({
     <TechsCarousel>
       <CarouselContent carouselAnimation={carouselAnimation} radius={radius}>
         {images.map((imageSrc, i) => (
-          <Item itemsAnimation={getItemsPosition} key={imageSrc + i}>
+          <Item itemsPosition={itemsPosition} key={imageSrc + i}>
             <img src={imageSrc} alt="" />
           </Item>
         ))}
@@ -171,7 +106,7 @@ const Item = styled.div<CarouselStyles>`
     height: 150% !important;
   }
 
-  ${props => props.itemsAnimation && props.itemsAnimation()};
+  ${props => props.itemsPosition};
 `;
 
 const LastChild = styled.div<CarouselStyles>`
