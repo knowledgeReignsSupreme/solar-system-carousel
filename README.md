@@ -1,4 +1,5 @@
 # Solar System Carousel
+
 ### A unique and easy to use carousel.
 
 Made by Hadar Harush & David Sharki.
@@ -11,31 +12,33 @@ Made by Hadar Harush & David Sharki.
 
 <br />
 
-CodeSandbox playground: 
+CodeSandbox playground:
 <br />
 https://codesandbox.io/s/solar-system-carousel-yuy1l
 
-
 ## Usage:
+
 ```js
-import { SolarSystemCarousel } from "solar-system-carousel";
+import { SolarSystemCarousel } from 'solar-system-carousel';
 
 function Foo() {
   return (
     <div>
-    <SolarSystemCarousel images={images} centeredImage={centeredImage} />
-    </div>)
+      <SolarSystemCarousel images={images} centeredImage={centeredImage} />
+    </div>
+  );
 }
 ```
 
 ## Props:
+
 <br />
 
-| prop    | value  | Description         | default | required? |
-| ------- | ------ | ------------------- | ------- | --------- |
-| images    | array of strings | The images that should revolve in the carousel. must have 1-12 images! | an example array of 4 images | yes                                                      
-| centeredImage    | string | The image that should be in the middle of the carousel | head image | yes                                                      
-| centerWidth    | string | width of the centered image. works with any unit. e.g: centerWidth='20rem' or centerWidth='80%'. | '400px' | no                                                      
+| prop          | value            | Description                                                                                      | default                      | required? |
+| ------------- | ---------------- | ------------------------------------------------------------------------------------------------ | ---------------------------- | --------- |
+| images        | array of strings | The images that should revolve in the carousel. must have 1-12 images!                           | an example array of 4 images | yes       |
+| centeredImage | string           | The image that should be in the middle of the carousel                                           | head image                   | yes       |
+| centerWidth   | string           | width of the centered image. works with any unit. e.g: centerWidth='20rem' or centerWidth='80%'. | '400px'                      | no        |
 
 <br />
 
@@ -48,4 +51,3 @@ function Foo() {
 <a href='https://www.linkedin.com/in/david-sharki-925892204/'> David's LinkedIn </a>
 <br />
 <a href='https://www.linkedin.com/in/hadar-harush-a08b04210/'> Hadars's LinkedIn </a>
-
